@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 ## --CHANGE THE VALUES FOR THE EXPERIMENT IN WHICH YOU RAN--
 
 #Reading in the data
-df = pd.read_csv("SensorCalibrationTrial2'.csv")
+name = "name.csv"
+df = pd.read_csv(name)
 
 m_c = 22.7           #[g]    mass of container
 m_d = 29.8           #[g]    dry mass of soil in trial
