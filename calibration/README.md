@@ -27,3 +27,4 @@ A linear fit to the data can then be applied and a calibration curve can then be
 - A digital food scale is preferred for mass measurements. The more precise your scale is, the better your calibration will be
 - The amount of water added in each time doesn't matter, just add a little bit at a time in order to get around 6-10 data samples
 - The python script is meant to provide a framework for processing the data, Jupyter notebooks are recommended for use
+- The starting sample does not have to be fully dry, simply ensure that it is at least relatively dry to start with for calibration
