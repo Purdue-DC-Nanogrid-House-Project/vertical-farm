@@ -18,3 +18,12 @@ A linear fit to the data can then be applied and a calibration curve can then be
 8. Run the soil calibration code after inputting constant values such as the mass of the container, the sensor reading in air,
    and the volume of soil used
 9. Change the slope and y-intercept values on the sensor's arduino code accordingly
+
+## Notes
+
+- To create the dry soil sample, there are several options
+  1. lay out the soil on wax paper and spread it out as thin as possible and let air dry (4-7 days)
+  2. lay sample thinly onto parchment paper and put into 300 <sup>o</sup>F oven for approximately 20 minutes
+- A digital food scale is preferred for mass measurements. The more precise your scale is, the better your calibration will be
+- The amount of water added in each time doesn't matter, just add a little bit at a time in order to get around 6-10 data samples
+- The python script is meant to provide a framework for processing the data, Jupyter notebooks are recommended for use
