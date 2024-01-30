@@ -1,6 +1,8 @@
 #include "config.h"
 #include <Arduino.h>
 
+// Adding a comment to test the GitHub functionality for emma yay!
+
 // Define configuration parameters needed for the SoC
 namespace Config
 {
