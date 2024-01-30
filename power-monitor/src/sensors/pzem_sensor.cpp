@@ -4,19 +4,6 @@
 #include "pzem_sensor.h"
 #include <PZEM004Tv30.h>
 
-#define PZEM_SERIAL Serial2
-
-// Update this array size to match the Config::NUMBER_OF_PZEMS
-PZEM004Tv30 pzems[1];
-
-void InitializePzemSensors(){
-    // Initialize each pzem with its unique ID over the Serial channel
-    for(int i = 0; i < Config::NUMBER_OF_PZEMS; i++)
-    {
-        pzems[i] = PZEM004Tv30(PZEM_SERIAL, Config::PZEM_RX_PIN, Config::PZEM_TX_PIN, Config::STARTING_COMM_ID + i);
-    }
-}
-
 void ReadPzemSensorData(bool isMQTTConnected){
     // Print out the measured values from each PZEM module
     for(int i = 0; i < Config::NUMBER_OF_PZEMS; i++)
