@@ -13,11 +13,7 @@ void ReadPzemSensorData(bool isMQTTConnected){
 
         // Read the data from the sensor
         float voltage = pzems[i].voltage();
-        float current = pzems[i].current();
-        float power = pzems[i].power();
-        float energy = pzems[i].energy();
-        float frequency = pzems[i].frequency();
-        float pf = pzems[i].pf();
+
 
         String dataName = "PZEM " + String(i) + " Voltage";
         String payloadData = String(voltage);
@@ -25,34 +21,5 @@ void ReadPzemSensorData(bool isMQTTConnected){
         LogSensorData(dataName, payloadData, payloadUnits);
         RecordData(dataName, payloadData, payloadUnits, isMQTTConnected);
 
-        dataName = "PZEM " + String(i) + " Current";
-        payloadData = String(current);
-        payloadUnits = "(A)";
-        LogSensorData(dataName, payloadData, payloadUnits);
-        RecordData(dataName, payloadData, payloadUnits, isMQTTConnected);
-
-        dataName = "PZEM " + String(i) + " Power";
-        payloadData = String(power);
-        payloadUnits = "(W)";
-        LogSensorData(dataName, payloadData, payloadUnits);
-        RecordData(dataName, payloadData, payloadUnits, isMQTTConnected);
-
-        dataName = "PZEM " + String(i) + " Energy";
-        payloadData = String(energy);
-        payloadUnits = "(kWh)";
-        LogSensorData(dataName, payloadData, payloadUnits);
-        RecordData(dataName, payloadData, payloadUnits, isMQTTConnected);
-
-        dataName = "PZEM " + String(i) + " Frequency";
-        payloadData = String(frequency);
-        payloadUnits = "(Hz)";
-        LogSensorData(dataName, payloadData, payloadUnits);
-        RecordData(dataName, payloadData, payloadUnits, isMQTTConnected);
-
-        dataName = "PZEM " + String(i) + " PF";
-        payloadData = String(pf);
-        payloadUnits = "(-)";
-        LogSensorData(dataName, payloadData, payloadUnits);
-        RecordData(dataName, payloadData, payloadUnits, isMQTTConnected);
     }
 }
