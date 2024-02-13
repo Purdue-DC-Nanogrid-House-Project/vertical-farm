@@ -1,3 +1,6 @@
+// i have no clue if any of the include statements below are necessary
+// also, how too i make sure we are calling the pzem_sensor.cpp?
+
 #include "main.h"
 #include "mqtt_comm.h"
 #include "ota_comm.h"
@@ -20,7 +23,7 @@ void setup() {
 }
 
 void loop() {
-  ReestablishCommunications(loopCount);
+  ReestablishCommunications(loopCount); //--> do i need this?
   ReadPzemSensorData(isMQTTConnected);
   SynchronizeDateTime();
   delay(Config::LOOP_INTERVAL_MSEC);
