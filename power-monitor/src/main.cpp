@@ -1,5 +1,4 @@
-// i have no clue if any of the include statements below are necessary
-// also, how too i make sure we are calling the soil-moisture-sensor.cpp?
+// Note: This file was the main code used for the pzem sensors.
 
 #include "main.h"
 #include "mqtt_comm.h"
@@ -8,7 +7,7 @@
 #include "wifi_comm.h"
 #include "ntp_comm.h"
 #include "config.h"
-#include "soil-moisture-sensor.h"
+#include "pzem_sensor.h"
 #include <Arduino.h>
 
 bool isWiFiConnected = false;
@@ -19,12 +18,12 @@ int msecBetweenResponderRestarts = 120000;
 
 void setup() {
   InitializeCommunications();
-  InitializeSoilMoistureSensors();
+  InitializePzemSensors();
 }
 
 void loop() {
   ReestablishCommunications(loopCount);
-  ReadSoilMoistureSensorData(isMQTTConnected, AOUT_PIN_1, valvePin1, sensor_value_1, voltage_1);
+  ReadPzemSensorData(isMQTTConnected);
   SynchronizeDateTime();
   delay(Config::LOOP_INTERVAL_MSEC);
   loopCount += 1;
@@ -52,4 +51,3 @@ void ReestablishCommunications(int &loopCount) {
         loopCount = 0;  // Reset the loop count
     }
 }
-
