@@ -1,5 +1,4 @@
-// i have no clue if any of the include statements below are necessary
-// also, how too i make sure we are calling the soil-moisture-sensor.cpp?
+// Note: This file will be used to ensure wifi connection is stable for data uploading.
 
 #include "main.h"
 #include "mqtt_comm.h"
