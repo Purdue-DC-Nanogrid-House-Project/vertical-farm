@@ -42,8 +42,8 @@ void loop() {
   delay(Config::LOOP_INTERVAL_MSEC);
   loopCount += 1;
 
-  // don't check the soil moisture for 30 minutes
-  delay(1800000);
+  // don't check the soil moisture for 1 minute
+  delay(60000);
 }
 
 void InitializeCommunications() {

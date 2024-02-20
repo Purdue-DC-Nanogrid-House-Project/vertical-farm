@@ -10,13 +10,13 @@ void ReadSoilMoistureSensorData(bool isMQTTConnected, int AOUT_PIN, int valvePin
 
 if(convertedSensorVoltage > voltage){
 	// soil is dry and needs to be watered! turn valve ON
-	digitalWrite(valvePin, HIGH);
+	//digitalWrite(valvePin, HIGH);
 
 	// leave valve on for 45 seconds
-	delay(45000);
+	//delay(45000);
 
 	// turn valve OFF
-	digitalWrite(valvePin, LOW);
+	//digitalWrite(valvePin, LOW);
 
     // Print out the measured values from each soil moisture sensor
         String dataName = "SoilMoistureSensorShelf " + shelfNumber + " Voltage";
@@ -27,7 +27,7 @@ if(convertedSensorVoltage > voltage){
 
   } else {
 	// soil is moist, keep valve closed and do not water
-	digitalWrite(valvePin, LOW);
+	//digitalWrite(valvePin, LOW);
 
     // Print out the measured values from each soil moisture sensor
         String dataName = "SoilMoistureSensorShelf " + shelfNumber + " Voltage";
