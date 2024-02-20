@@ -40,7 +40,10 @@ void loop() {
   ReadSoilMoistureSensorData(isMQTTConnected, AOUT_PIN_3, valvePin3, sensorValue3, voltage3);
   SynchronizeDateTime();
   delay(Config::LOOP_INTERVAL_MSEC);
-  loopCount += 1; --> when do we jump out of the loop? looks like this one goes on forever
+  loopCount += 1;
+
+  // don't check the soil moisture for 30 minutes
+  delay(1800000);
 }
 
 void InitializeCommunications() {

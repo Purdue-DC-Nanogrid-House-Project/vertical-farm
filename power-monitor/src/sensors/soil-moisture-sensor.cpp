@@ -36,8 +36,7 @@ if(convertedSensorVoltage > voltage){
         LogSensorData(dataName, payloadData, payloadUnits);
         RecordData(dataName, payloadData, payloadUnits, isMQTTConnected);
 
-	// don't check the soil moisture for 30 minutes
-	delay(1800000);
+
   }
 
 delay(1000);
