@@ -1,6 +1,6 @@
 // Note: This file will be used to ensure wifi connection is stable for data uploading.
 
-#include "main.h"
+#include "soil0moisture-sensor-main.h"
 #include "mqtt_comm.h"
 #include "ota_comm.h"
 #include "serial_comm.h"
@@ -16,6 +16,18 @@ bool isMQTTConnected = false;
 int loopCount = 0;
 int msecBetweenResponderRestarts = 120000;
 
+//shelf #1
+valvePin1 = 27;
+#define AOUT_PIN_1 26
+
+//shelf #2
+valvePin2 = 32;
+#define AOUT_PIN_2 33
+
+//shelf #3
+valvePin3 = 34;
+#define AOUT_PIN_3 35
+
 void setup() {
   InitializeCommunications();
   InitializeSoilMoistureSensors();
@@ -23,10 +35,12 @@ void setup() {
 
 void loop() {
   ReestablishCommunications(loopCount);
-  ReadSoilMoistureSensorData(isMQTTConnected, AOUT_PIN_1, valvePin1, sensor_value_1, voltage_1);
+  ReadSoilMoistureSensorData(isMQTTConnected, AOUT_PIN_1, valvePin1, sensorValue1, voltage1);
+  ReadSoilMoistureSensorData(isMQTTConnected, AOUT_PIN_2, valvePin2, sensorValue2, voltage2);
+  ReadSoilMoistureSensorData(isMQTTConnected, AOUT_PIN_3, valvePin3, sensorValue3, voltage3);
   SynchronizeDateTime();
   delay(Config::LOOP_INTERVAL_MSEC);
-  loopCount += 1;
+  loopCount += 1; --> when do we jump out of the loop? looks like this one goes on forever
 }
 
 void InitializeCommunications() {
